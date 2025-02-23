@@ -1,0 +1,37 @@
+/* Body background and text */
+body {
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333; /* Dark text for readability */
+    font-family: 'Arial', sans-serif; /* Font style */
+    margin: 0;
+    padding: 0;
+}
+
+/* Heading style */
+h1 {
+    color: #4CAF50; /* Green color for the heading */
+    text-align: center; /* Center the heading */
+    font-size: 2.5em; /* Larger text */
+    margin-top: 50px;
+}
+
+/* Paragraph style */
+p {
+    font-size: 1.2em;
+    line-height: 1.6; /* Spacing between lines */
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Link style */
+a {
+    color: #007BFF; /* Blue color for links */
+    text-decoration: none; /* Remove the underline */
+    font-weight: bold;
+}
+
+/* Add hover effect to links */
+a:hover {
+    color: #0056b3; /* Darker blue when hovered */
+    text-decoration: underline; /* Underline on hover */
+}
