@@ -1,26 +1,47 @@
+/*
+Portfolio CSS script
+Author: HumanThe2nd
+Created: 2025-02-23
+*/
+/* Reset margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Body background and text */
 body {
     background-color: #f0f0f0; /* Light grey background */
     color: #333; /* Dark text for readability */
     font-family: 'Arial', sans-serif; /* Font style */
-    margin: 0;
-    padding: 0;
+    line-height: 1.6; /* Better line spacing */
+    padding: 20px; /* Add some space around the edges */
+}
+
+/* Center the content */
+h1, h2, p {
+    text-align: center;
 }
 
 /* Heading style */
 h1 {
     color: #4CAF50; /* Green color for the heading */
-    text-align: center; /* Center the heading */
     font-size: 2.5em; /* Larger text */
-    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+/* Subheading style */
+h2 {
+    color: #555; /* Slightly darker grey */
+    font-size: 1.8em; /* A little smaller than the main heading */
+    margin-bottom: 20px;
 }
 
 /* Paragraph style */
 p {
     font-size: 1.2em;
-    line-height: 1.6; /* Spacing between lines */
-    margin: 20px auto;
-    text-align: center;
+    margin-bottom: 15px;
 }
 
 /* Link style */
@@ -35,3 +56,4 @@ a:hover {
     color: #0056b3; /* Darker blue when hovered */
     text-decoration: underline; /* Underline on hover */
 }
+
