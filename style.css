@@ -26,7 +26,7 @@ h1, h2, p {
 
 /* Heading style */
 h1 {
-    color: #4CAF50; /* Green color for the heading */
+    color: #db0202; /* Red color for heading */
     font-size: 2.5em; /* Larger text */
     margin-bottom: 10px;
 }
