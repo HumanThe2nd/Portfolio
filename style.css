@@ -52,7 +52,6 @@ body.dark-mode {
 }
 
 /* Ensure headings and paragraphs turn white */
-.dark-mode h1,
 .dark-mode h2,
 .dark-mode p {
     color: white;
@@ -60,11 +59,11 @@ body.dark-mode {
 
 /* Adjust link colors for dark mode */
 .dark-mode a {
-    color: #8BC34A; /* Light green links */
+    color: #ff0000 /* Light red links */
 }
 
 .dark-mode a:hover {
-    color: #A5D6A7; /* Even lighter green on hover */
+    color: #ff5f5f; /* Lighter red on hover */
 }
 
 /* Dark Mode Button Styling */
