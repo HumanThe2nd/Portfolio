@@ -26,6 +26,12 @@ nav ul li a:hover {
     color: #4CAF50;
 }
 
+/* Dark-mode toggle */
+body.dark-mode {
+    background: #222;
+    color: white;
+}
+
 /* Reset margin and padding for all elements */
 * {
     margin: 0;
