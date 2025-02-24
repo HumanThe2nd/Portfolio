@@ -19,8 +19,8 @@ body {
 /* Position the toggle button in the top right corner */
 button {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 70px;
+    right: 50px;
     padding: 10px 15px;
     font-size: 1em;
     background-color: #007BFF;
