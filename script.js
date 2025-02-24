@@ -3,16 +3,18 @@ Javascript portfolio script
 Author: HumanThe2nd
 Created: 2025-02-23
 */
+// script.js
 function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
-
-    // Save the user preference in local storage
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-    } else {
-        localStorage.setItem("theme", "light");
-    }
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
 }
+
+// Apply dark mode if it was enabled previously
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+    }
+});
 
 // Check user preference on page load
 window.onload = function () {
