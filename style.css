@@ -26,11 +26,36 @@ nav ul li a:hover {
     color: #4CAF50;
 }
 
-/* Dark-mode toggle */
-body.dark-mode {
-    background: #222;
-    color: white;
+/* Light Mode (Default) */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
 }
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
+
+/* Optional: Style the Button */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 15px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
 
 /* Reset margin and padding for all elements */
 * {
