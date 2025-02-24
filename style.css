@@ -3,7 +3,6 @@ Portfolio CSS script
 Author: HumanThe2nd
 Created: 2025-02-23
 */
-
 /* Ensure body uses flexbox for positioning */
 body {
     display: flex;
@@ -52,27 +51,31 @@ nav ul li a:hover {
 nav ul li button {
     background-color: #007BFF;
     color: white;
-    border: none;
+    border: 2px solid #007BFF; /* Add border to match the link */
     border-radius: 5px; /* Rounded corners */
     padding: 8px 12px; /* Consistent padding with links */
     cursor: pointer;
     font-size: 1.2em; /* Match size of other links */
     margin: 0;
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
 }
 
 nav ul li button:hover {
     background-color: #0056b3; /* Darker blue on hover */
     color: white; /* Keep white text on hover */
+    border-color: #0056b3; /* Darker border color on hover */
 }
 
 /* Dark Mode Styling for Button */
 .dark-mode nav ul li button {
     background-color: #555;
     color: white;
+    border-color: #555; /* Same color as background */
 }
 
 .dark-mode nav ul li button:hover {
     background-color: #777; /* Lighter dark background on hover */
+    border-color: #777; /* Lighter border color on hover */
 }
 
 /* Dark Mode */
@@ -151,3 +154,4 @@ p {
     margin: 20px auto; /* Center the image */
     border: 4px solid #0244f7; /* Border width and color */
 }
+
