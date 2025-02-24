@@ -37,12 +37,13 @@ nav ul li {
     margin: 0 15px;
 }
 nav ul li a {
-    color: white;
+    color: #db0202; /* Red navigation links */
     text-decoration: none;
     font-size: 1.2em;
+    font-weight: bold;
 }
 nav ul li a:hover {
-    color: #4CAF50;
+    color: #ff5f5f; /* Lighter red on hover */
 }
 
 /* Dark Mode */
@@ -57,13 +58,40 @@ body.dark-mode {
     color: white;
 }
 
-/* Adjust link colors for dark mode */
+/* Name (h1) stays red in both modes */
+h1 {
+    color: #db0202; /* Red color for heading */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* Adjust navigation links to remain red in dark mode */
+.dark-mode nav ul li a {
+    color: #db0202; /* Keep nav links red */
+}
+
+.dark-mode nav ul li a:hover {
+    color: #ff5f5f; /* Lighter red on hover */
+}
+
+/* Other links remain blue */
+a {
+    color: #007BFF; /* Blue color for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    color: #0056b3; /* Darker blue when hovered */
+    text-decoration: underline;
+}
+
+/* Ensure other links remain blue in dark mode */
 .dark-mode a {
-    color: #ff0000 /* Light red links */
+    color: #4da3ff; /* Lighter blue for dark mode */
 }
 
 .dark-mode a:hover {
-    color: #ff5f5f; /* Lighter red on hover */
+    color: #81c1ff; /* Even lighter blue on hover */
 }
 
 /* Dark Mode Button Styling */
@@ -97,13 +125,6 @@ h1, h2, p {
     text-align: center;
 }
 
-/* Heading style */
-h1 {
-    color: #db0202; /* Red color for heading */
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
 /* Subheading style */
 h2 {
     color: #555; /* Slightly darker grey */
@@ -125,17 +146,4 @@ p {
     border-radius: 50%; /* Circular image */
     margin: 20px auto; /* Center the image */
     border: 4px solid #0244f7; /* Border width and color */
-}
-
-/* Link style */
-a {
-    color: #007BFF; /* Blue color for links */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Add hover effect to links */
-a:hover {
-    color: #0056b3; /* Darker blue when hovered */
-    text-decoration: underline;
 }
