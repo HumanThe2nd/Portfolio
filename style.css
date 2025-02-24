@@ -21,14 +21,17 @@ nav {
     background: #333;
     padding: 10px 0;
 }
+
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center; /* Ensures links are centered */
     padding: 0;
+    align-items: center; /* Vertically centers items */
 }
+
 nav ul li {
-    display: inline-block;  /* Changed from inline to inline-block */
+    display: inline-block;
     margin: 0 15px;
 }
 
@@ -37,6 +40,7 @@ nav ul li a {
     text-decoration: none;
     font-size: 1.2em;
 }
+
 nav ul li a:hover {
     color: #4CAF50;
 }
@@ -47,10 +51,11 @@ nav ul li button {
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 8px 15px; /* Adjusted padding for consistency */
+    padding: 8px 15px;
     cursor: pointer;
     font-size: 1.2em; /* Match size of other links */
     margin: 0; /* Removed margin */
+    align-self: center; /* Ensures button aligns with other nav items */
 }
 
 nav ul li button:hover {
@@ -143,3 +148,4 @@ p {
     margin: 20px auto; /* Center the image */
     border: 4px solid #0244f7; /* Border width and color */
 }
+
