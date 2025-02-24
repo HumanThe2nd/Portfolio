@@ -30,7 +30,15 @@ h1 {
     font-size: 2.5em; /* Larger text */
     margin-bottom: 10px;
 }
-
+/* Image format */
+.profile-pic {
+    display: block;
+    width: 150px; /* Adjust size */
+    height: 150px;
+    border-radius: 50%; /* Makes it round */
+    margin: 20px auto; /* Centers the image */
+    border: 3px solid #4CAF50; /* Optional border */
+}
 /* Subheading style */
 h2 {
     color: #555; /* Slightly darker grey */
