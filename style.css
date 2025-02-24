@@ -16,61 +16,53 @@ body {
     transition: background 0.3s, color 0.3s; /* Smooth transition for dark mode */
 }
 
-/* Position the toggle button in the top right corner */
-button {
-    position: absolute;
-    top: 70px;
-    right: 50px;
-    padding: 10px 15px;
-    font-size: 1em;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Dark Mode Button Styling */
-.dark-mode button {
-    background-color: #555;
-    color: white;
-}
-
-.dark-mode button:hover {
-    background-color: #777;
-}
-
 /* Navigation bar */
 nav {
     background: #333;
     padding: 10px 0;
 }
-
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center; /* Ensures links are centered */
     padding: 0;
 }
-
 nav ul li {
     display: inline;
     margin: 0 15px;
 }
 
 nav ul li a {
-    color: #db0202; /* Red navigation links */
+    color: white;
     text-decoration: none;
     font-size: 1.2em;
-    font-weight: bold;
+}
+nav ul li a:hover {
+    color: #4CAF50;
 }
 
-nav ul li a:hover {
-    color: #ff5f5f; /* Lighter red on hover */
+/* Dark Mode Button inside nav */
+nav ul li button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+nav ul li button:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Mode Styling for Button */
+.dark-mode nav ul li button {
+    background-color: #555;
+    color: white;
+}
+
+.dark-mode nav ul li button:hover {
+    background-color: #777;
 }
 
 /* Dark Mode */
