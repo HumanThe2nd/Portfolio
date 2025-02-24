@@ -28,7 +28,7 @@ nav ul {
     padding: 0;
 }
 nav ul li {
-    display: inline;
+    display: inline-block;  /* Changed from inline to inline-block */
     margin: 0 15px;
 }
 
@@ -47,8 +47,10 @@ nav ul li button {
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 8px 15px; /* Adjusted padding for consistency */
     cursor: pointer;
+    font-size: 1.2em; /* Match size of other links */
+    margin: 0; /* Removed margin */
 }
 
 nav ul li button:hover {
@@ -141,4 +143,3 @@ p {
     margin: 20px auto; /* Center the image */
     border: 4px solid #0244f7; /* Border width and color */
 }
-
