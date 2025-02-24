@@ -4,21 +4,44 @@ Author: HumanThe2nd
 Created: 2025-02-23
 */
 
-/* Reset margin and padding for all elements */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Light Mode (Default) */
+/* Ensure body uses flexbox for positioning */
 body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
     background-color: #f0f0f0;
     color: #333;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    padding: 20px;
     transition: background 0.3s, color 0.3s; /* Smooth transition for dark mode */
+}
+
+/* Position the toggle button in the top right corner */
+button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Mode Button Styling */
+.dark-mode button {
+    background-color: #555;
+    color: white;
+}
+
+.dark-mode button:hover {
+    background-color: #777;
 }
 
 /* Navigation bar */
@@ -26,22 +49,26 @@ nav {
     background: #333;
     padding: 10px 0;
 }
+
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center; /* Ensures links are centered */
     padding: 0;
 }
+
 nav ul li {
     display: inline;
     margin: 0 15px;
 }
+
 nav ul li a {
     color: #db0202; /* Red navigation links */
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
 }
+
 nav ul li a:hover {
     color: #ff5f5f; /* Lighter red on hover */
 }
@@ -80,6 +107,7 @@ a {
     text-decoration: none;
     font-weight: bold;
 }
+
 a:hover {
     color: #0056b3; /* Darker blue when hovered */
     text-decoration: underline;
@@ -92,32 +120,6 @@ a:hover {
 
 .dark-mode a:hover {
     color: #81c1ff; /* Even lighter blue on hover */
-}
-
-/* Dark Mode Button Styling */
-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 15px;
-    font-size: 1em;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Dark mode button style */
-.dark-mode button {
-    background-color: #555;
-    color: white;
-}
-
-.dark-mode button:hover {
-    background-color: #777;
 }
 
 /* Center the content */
@@ -147,3 +149,4 @@ p {
     margin: 20px auto; /* Center the image */
     border: 4px solid #0244f7; /* Border width and color */
 }
+
