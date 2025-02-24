@@ -35,9 +35,9 @@ h1 {
     display: block;
     width: 150px; /* Adjust size */
     height: 150px;
-    /* border-radius: 50%; /* Circular image */
+    border-radius: 50%; /* Circular image */
     margin: 20px auto; /* Center the image */
-    border: 3px solid #7d0800; /* Red Border*/
+    border: 4px solid #0244f7; /* Border width and color*/
 }
 /* Subheading style */
 h2 {
