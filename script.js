@@ -20,3 +20,16 @@ window.onload = function () {
         document.body.classList.add("dark-mode");
     }
 };
+/* contact form */
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent page reload
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Message:", message);
+
+    alert("Message sent successfully!");
+});
