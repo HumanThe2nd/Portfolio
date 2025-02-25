@@ -35,7 +35,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #db0202; /* Red buttons*/
     text-decoration: none;
     font-size: 1.2em;
     padding: 8px 12px; /* Matching padding to improve consistency */
@@ -43,8 +43,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #4CAF50; /* Green hover effect */
-    background-color: rgba(0, 0, 0, 0.1); /* Subtle background hover effect */
+    color: #ff5f5f; /* Lighter red on hover */
 }
 
 /* Dark Mode Button inside nav */
