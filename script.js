@@ -2,9 +2,22 @@
 Javascript portfolio script
 Author: HumanThe2nd
 Created: 2025-02-23
+Updated: 2025-02-25
 */
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+
+    // Save the state in localStorage
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("darkMode", "enabled");
+    } else {
+        localStorage.setItem("darkMode", "disabled");
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    /* Dark Mode */
+    /* Apply dark mode if previously enabled */
     if (localStorage.getItem("darkMode") === "enabled") {
         document.body.classList.add("dark-mode");
     }
@@ -69,10 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createSnowflakes();
     animateSnow();
-});
-
-
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 });
