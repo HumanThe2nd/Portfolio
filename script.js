@@ -55,15 +55,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function drawSnowflakes() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "white";
-        ctx.beginPath();
+        
         snowflakes.forEach((flake) => {
-            ctx.moveTo(flake.x, flake.y);
+            // Create a radial gradient for each snowflake
+            let gradient = ctx.createRadialGradient(flake.x, flake.y, 0, flake.x, flake.y, flake.radius);
+            gradient.addColorStop(0, "rgba(255, 255, 255, 1)");  // Bright white center
+            gradient.addColorStop(1, "rgba(255, 255, 255, 0)");  // Fades out
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
             ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+            ctx.fill();
         });
-        ctx.fill();
         moveSnowflakes();
     }
+
 
     function moveSnowflakes() {
         snowflakes.forEach((flake) => {
