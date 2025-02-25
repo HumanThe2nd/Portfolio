@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
         snowflakes.forEach((flake) => {
             // Create a radial gradient for each snowflake
             let gradient = ctx.createRadialGradient(flake.x, flake.y, 0, flake.x, flake.y, flake.radius);
-            gradient.addColorStop(0, "rgba(46 ,218 ,255, 1)");  // Bright white center
-            gradient.addColorStop(1, "rgba(255 ,255 ,255, 1)");  // Blue edges
+            gradient.addColorStop(0, "rgba(0 ,80 ,255, 1)");  // Blue center
+            gradient.addColorStop(1, "rgba(255 ,255 ,255, 1)");  // White edges
             ctx.fillStyle = gradient;
             ctx.beginPath();
             ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
