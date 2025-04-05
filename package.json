@@ -1,7 +1,16 @@
 {
-  "name": "my-portfolio",
+  "name": "portfolio",
+  "author": "HumanThe2nd",
+  "created": "2025-04-04",
   "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "mongodb": "^6.0.0"
+    "express": "^4.17.1",
+    "mongodb": "^4.0.0"
+  },
+  "engines": {
+    "node": "14.x" 
   }
 }
