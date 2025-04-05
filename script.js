@@ -21,7 +21,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("darkMode") === "enabled") {
         document.body.classList.add("dark-mode");
     }
+    
+    /* View count */
+    const slug = 'homepage'; // You can change this slug based on your page or component
+    const viewCountElement = document.getElementById('view-count'); // Assuming you have an element with ID 'view-count'
 
+    // Fetch the view count from the API
+    fetch(`/api/view?slug=${slug}`)
+        .then(res => res.json())
+        .then(data => {
+            if (viewCountElement) {
+                viewCountElement.textContent = `${data.count} views`; // Display view count
+            }
+        })
+        .catch(err => {
+            console.error("Error fetching view count:", err);
+        });
+    
     /* Snow Effect */
     const canvas = document.getElementById("snowCanvas");
     if (!canvas) {
