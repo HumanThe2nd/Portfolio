@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     /* View count */
-    const slug = 'homepage'; // You can change this slug based on your page or component
-    const viewCountElement = document.getElementById('view-count'); // Assuming you have an element with ID 'view-count'
+    const slug = 'index';
+    const viewCountElement = document.getElementById('view-count');
 
     // Fetch the view count from the API
     fetch(`/api/view?slug=${slug}`)
