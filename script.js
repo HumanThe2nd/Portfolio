@@ -2,7 +2,7 @@
 Javascript portfolio script
 Author: HumanThe2nd
 Created: 2025-02-23
-Updated: 2025-02-25
+Updated: 2025-04-06
 */
 
 function toggleDarkMode() {
