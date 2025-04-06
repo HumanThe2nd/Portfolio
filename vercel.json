@@ -1,6 +1,9 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/api/view", "dest": "/api/view.js" }
+    {
+      "src": "/api/view",
+      "dest": "api/view.js"
+    }
   ]
 }
