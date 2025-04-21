@@ -2,10 +2,10 @@
 Portfolio CSS script
 Author: HumanThe2nd
 Created: 2025-02-23
-Updated: 2025-03-23
+Updated: 2025-04-21
 */
 
-/* Ensure body uses flexbox for positioning */
+/* === Base Styles === */
 body {
     display: flex;
     flex-direction: column;
@@ -14,10 +14,51 @@ body {
     color: #333;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    transition: background 0.3s, color 0.3s; /* Smooth transition for dark mode */
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Navigation bar */
+h1, h2, p {
+    text-align: center;
+}
+
+h1 {
+    color: #db0202;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #555;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* === Links === */
+a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.dark-mode a {
+    color: #4da3ff;
+}
+
+.dark-mode a:hover {
+    color: #81c1ff;
+}
+
+/* === Navigation === */
 nav {
     background: #333;
     padding: 10px 0;
@@ -26,9 +67,9 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* Ensures links are centered */
+    justify-content: center;
     padding: 0;
-    align-items: center; /* Vertically centers items */
+    align-items: center;
 }
 
 nav ul li {
@@ -37,126 +78,75 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #db0202; /* Red buttons */
+    color: #db0202;
     text-decoration: none;
     font-size: 1.2em;
-    padding: 8px 12px; /* Matching padding to improve consistency */
-    border-radius: 5px; /* Rounded corners to match button */
+    padding: 8px 12px;
+    border-radius: 5px;
 }
 
 nav ul li a:hover {
-    color: #ff5f5f; /* Lighter red on hover */
+    color: #ff5f5f;
 }
 
-/* Dark Mode Button inside nav */
 nav ul li button {
     background-color: #007BFF;
     color: white;
-    border: 2px solid #007BFF; /* Add border to match the link */
-    border-radius: 5px; /* Rounded corners */
-    padding: 8px 12px; /* Consistent padding with links */
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    padding: 8px 12px;
     cursor: pointer;
-    font-size: 1.2em; /* Match size of other links */
+    font-size: 1.2em;
     margin: 0;
-    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 nav ul li button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    color: white; /* Keep white text on hover */
-    border-color: #0056b3; /* Darker border color on hover */
+    background-color: #0056b3;
+    border-color: #0056b3;
 }
 
-/* Dark Mode Styling for Button */
-.dark-mode nav ul li button {
-    background-color: #555;
-    color: white;
-    border-color: #555; /* Same color as background */
-}
-
-.dark-mode nav ul li button:hover {
-    background-color: #777; /* Lighter dark background on hover */
-    border-color: #777; /* Lighter border color on hover */
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #222;
-    color: white; /* White text */
-}
-
-/* Ensure headings and paragraphs turn white */
-.dark-mode h2,
-.dark-mode p {
-    color: white;
-}
-
-/* Name (h1) stays red in both modes */
-h1 {
-    color: #db0202; /* Red color for heading */
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-/* Adjust navigation links to remain red in dark mode */
 .dark-mode nav ul li a {
-    color: #db0202; /* Keep nav links red */
+    color: #db0202;
 }
 
 .dark-mode nav ul li a:hover {
-    color: #ff5f5f; /* Lighter red on hover */
+    color: #ff5f5f;
 }
 
-/* Other links remain blue */
-a {
-    color: #007BFF; /* Blue color for links */
-    text-decoration: none;
-    font-weight: bold;
+.dark-mode nav ul li button {
+    background-color: #555;
+    border-color: #555;
 }
 
-a:hover {
-    color: #0056b3; /* Darker blue when hovered */
-    text-decoration: underline;
+.dark-mode nav ul li button:hover {
+    background-color: #777;
+    border-color: #777;
 }
 
-/* Ensure other links remain blue in dark mode */
-.dark-mode a {
-    color: #4da3ff; /* Lighter blue for dark mode */
-}
-
-.dark-mode a:hover {
-    color: #81c1ff; /* Even lighter blue on hover */
-}
-
-/* Center the content */
-h1, h2, p {
-    text-align: center;
-}
-
-/* Subheading style */
-h2 {
-    color: #555; /* Slightly darker grey */
-    font-size: 1.8em;
-    margin-bottom: 20px;
-}
-
-/* Paragraph style */
-p {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-
-/* Image format */
+/* === Profile Picture === */
 .profile-pic {
     display: block;
-    width: 150px; /* Adjust size */
+    width: 150px;
     height: 150px;
-    border-radius: 50%; /* Circular image */
-    margin: 20px auto; /* Center the image */
-    border: 4px solid #0244f7; /* Border width and color */
+    border-radius: 50%;
+    margin: 20px auto;
+    border: 4px solid #0244f7;
 }
 
-/* Contact Section */
+/* === View Count === */
+#view-count {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 15px;
+    color: #333;
+}
+
+.dark-mode #view-count {
+    color: white;
+}
+
+/* === Contact Section === */
 #contact {
     text-align: center;
     margin-top: 40px;
@@ -194,7 +184,6 @@ p {
     text-decoration: underline;
 }
 
-/* Dark Mode Styling */
 .dark-mode #contact h2,
 .dark-mode #contact p {
     color: white;
@@ -206,12 +195,6 @@ p {
 
 .dark-mode .contact-list a:hover {
     color: #81c1ff;
-}
-
-/* Dark Mode Styling */
-.dark-mode #contact h2,
-.dark-mode #contact p {
-    color: white;
 }
 
 .dark-mode #contact-form input,
@@ -229,18 +212,7 @@ p {
     background-color: #777;
 }
 
-/* Snowing effect */
-#snowCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Ensures users can still click elements */
-    z-index: 9999; /* Keeps it above everything */
-}
-
-/* Project Section */
+/* === Projects Section === */
 #projects {
     text-align: center;
     margin-top: 40px;
@@ -264,9 +236,9 @@ p {
 }
 
 .project-logo {
-    width: 100px; /* Adjust logo size */
+    width: 100px;
     height: 100px;
-    border-radius: 50%; /* Optional: round the logo */
+    border-radius: 50%;
     margin-bottom: 10px;
 }
 
@@ -293,7 +265,6 @@ p {
     text-decoration: underline;
 }
 
-/* Dark Mode */
 .dark-mode #projects h2,
 .dark-mode .project h3,
 .dark-mode .project p {
@@ -306,4 +277,26 @@ p {
 
 .dark-mode .project a:hover {
     color: #81c1ff;
+}
+
+/* === Snow Effect === */
+#snowCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* === Dark Mode General === */
+body.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+.dark-mode h2,
+.dark-mode p {
+    color: white;
 }
