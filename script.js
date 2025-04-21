@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())
         .then(data => {
             if (viewCountElement) {
-                viewCountElement.textContent = `${data.count} views`; // Display view count
+                viewCountElement.textContent = `Views: ${data.count}`; // Display view count
             }
         })
         .catch(err => {
