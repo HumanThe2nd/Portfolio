@@ -2,7 +2,7 @@
 Portfolio CSS script
 Author: HumanThe2nd
 Created: 2025-02-23
-Updated: 2025-04-21
+Updated: 2025-06-04
 */
 
 /* === Base Styles === */
@@ -36,6 +36,14 @@ h2 {
 p {
     font-size: 1.2em;
     margin-bottom: 15px;
+}
+/* Alias/Subtitle */
+.alias-subtitle {
+    font-weight: normal;
+    font-size: 1rem;
+    color: gray;
+    cursor: help;
+    margin-top: -10px;
 }
 
 /* === Links === */
