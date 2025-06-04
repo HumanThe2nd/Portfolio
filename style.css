@@ -41,13 +41,28 @@ p {
 .name-block {
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 10px;
 }
+
 .alias-subtitle {
-    font-weight: normal;
-    font-size: 1rem;
-    color: gray;
-    cursor: help;
+    font-size: 1em;
+    color: #666;
+    font-style: italic;
     margin-top: -10px;
+    transition: color 0.3s;
+    cursor: help;
+}
+
+.alias-subtitle:hover {
+    color: #333;
+}
+
+.dark-mode .alias-subtitle {
+    color: #aaa;
+}
+
+.dark-mode .alias-subtitle:hover {
+    color: #fff;
 }
 
 /* === Links === */
