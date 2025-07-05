@@ -1,6 +1,6 @@
 /*
 Javascript portfolio script
-Author: HumanThe2nd
+Author: Dan Shan
 Created: 2025-02-23
 Updated: 2025-04-21
 */
