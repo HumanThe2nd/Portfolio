@@ -19,6 +19,7 @@ body {
 
 h1, h2, p {
     text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 h1 {
@@ -87,7 +88,7 @@ a:hover {
 
 /* === Navigation === */
 nav {
-    background: #333;
+    background: #242424;
     padding: 10px 0;
 }
 
@@ -319,7 +320,7 @@ nav ul li button:hover {
 
 /* === Dark Mode General === */
 body.dark-mode {
-    background-color: #222;
+    background-color: #141414;
     color: white;
 }
 
