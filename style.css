@@ -34,6 +34,9 @@ h2 {
     margin-bottom: 20px;
 }
 
+h4 {
+    color: #9b0000;
+}
 p {
     font-size: 1.2em;
     margin-bottom: 15px;
@@ -297,6 +300,9 @@ nav ul li button:hover {
 .dark-mode .project h3,
 .dark-mode .project p {
     color: white;
+}
+.dark-mode .project h4 {
+    color: #ff0000;
 }
 
 .dark-mode .project a {
