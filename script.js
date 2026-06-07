@@ -53,8 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const json = await res.json();
             console.log('DMOJ proxy JSON:', json);
 
-            const user = json?.data?.object;
+            const user = json?.data?.object ?? json?.object;
             if (!user) {
+                console.error('Unexpected DMOJ response shape:', json);
                 throw new Error('Missing data.data.object in DMOJ proxy response');
             }
 
