@@ -38,76 +38,46 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error fetching view count:", err);
         });
     
-    // Simple DMOJ fetch and display (insert near your dashboard init)
-    (function loadDmojSimple() {
-    const url = 'https://dmoj.ca/api/v2/user/HumanThe2nd';
-    fetch(url)
-        .then(res => {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.json();
-        })
-        .then(json => {
-        const u = json?.data?.object;
-        if (!u) throw new Error('Unexpected response shape');
-        document.getElementById('dmoj-solved-count').textContent = u.problem_count ?? '--';
-        document.getElementById('dmoj-rank').textContent = u.rank ?? '--';
-        document.getElementById('dmoj-points').textContent = (u.points != null) ? Number(u.points).toFixed(1) : '--';
-        document.getElementById('dmoj-rating').textContent = u.rating ?? '--';
-        console.log('DMOJ data loaded (direct)');
-        })
-        .catch(err => {
-        console.error('DMOJ direct fetch failed:', err);
-        // Optional: show a brief fallback indicator on the page
-        ['dmoj-solved-count','dmoj-rank','dmoj-points','dmoj-rating'].forEach(id=>{
-            const el = document.getElementById(id);
-            if (el && el.textContent === '--') el.textContent = 'N/A';
-        });
-        });
-    })();
-
-    /* DMOJ Dashboard Stats */
-    const dmojEndpoint = '/api/dmoj';
     const dmojSolved = document.getElementById('dmoj-solved-count');
     const dmojRank = document.getElementById('dmoj-rank');
     const dmojPoints = document.getElementById('dmoj-points');
     const dmojRating = document.getElementById('dmoj-rating');
 
     async function loadDmojStats() {
-        // Prefer the cached file updated by GitHub Actions (no CORS issues),
-        // then try server proxy, then direct DMOJ as last resort.
-        const candidates = ['/dmoj.json', dmojEndpoint, 'https://dmoj.ca/api/v2/user/HumanThe2nd'];
-        let payload = null;
+        const url = 'https://dmoj.ca/api/v2/user/HumanThe2nd';
+        console.log('DMOJ fetch starting:', url);
 
-        for (const url of candidates) {
+        try {
+            const res = await fetch(url);
+            console.log('DMOJ fetch status:', res.status, res.statusText, res.headers.get('content-type'));
+            const text = await res.text();
+            console.log('DMOJ raw response text:', text);
+
+            let data;
             try {
-                const res = await fetch(url);
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                const json = await res.json();
-                // Normalize payload: DMOJ returns { data: { object: { ... } } }
-                const user = json?.data?.object ?? json?.object ?? json;
-                if (user && (user.problem_count !== undefined || user.points !== undefined)) {
-                    payload = user;
-                    console.log('Loaded DMOJ data from', url);
-                    break;
-                }
-                console.warn('DMOJ response did not contain expected fields from', url, json);
-            } catch (err) {
-                console.warn('DMOJ fetch failed for', url, err);
+                data = JSON.parse(text);
+            } catch (parseErr) {
+                throw new Error('Failed to parse JSON: ' + parseErr.message);
             }
-        }
 
-        if (!payload) {
-            if (dmojSolved) dmojSolved.textContent = 'N/A';
-            if (dmojRank) dmojRank.textContent = 'N/A';
-            if (dmojPoints) dmojPoints.textContent = 'N/A';
-            if (dmojRating) dmojRating.textContent = 'N/A';
-            return;
-        }
+            console.log('DMOJ parsed JSON:', data);
+            const user = data?.data?.object;
+            if (!user) {
+                throw new Error('Missing data.data.object in DMOJ response');
+            }
 
-        if (dmojSolved) dmojSolved.textContent = payload.problem_count ?? '--';
-        if (dmojRank) dmojRank.textContent = payload.rank ?? '--';
-        if (dmojPoints) dmojPoints.textContent = payload.points != null ? Number(payload.points).toFixed(1) : '--';
-        if (dmojRating) dmojRating.textContent = payload.rating ?? '--';
+            dmojSolved.textContent = user.problem_count ?? '--';
+            dmojRank.textContent = user.rank ?? '--';
+            dmojPoints.textContent = user.points != null ? Number(user.points).toFixed(1) : '--';
+            dmojRating.textContent = user.rating ?? '--';
+            console.log('DMOJ stats populated successfully');
+        } catch (err) {
+            console.error('DMOJ fetch failed:', err);
+            ['dmoj-solved-count', 'dmoj-rank', 'dmoj-points', 'dmoj-rating'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = 'N/A';
+            });
+        }
     }
 
     loadDmojStats();
