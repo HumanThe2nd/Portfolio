@@ -37,6 +37,33 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(err => {
             console.error("Error fetching view count:", err);
         });
+    
+    // Simple DMOJ fetch and display (insert near your dashboard init)
+    (function loadDmojSimple() {
+    const url = 'https://dmoj.ca/api/v2/user/HumanThe2nd';
+    fetch(url)
+        .then(res => {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+        })
+        .then(json => {
+        const u = json?.data?.object;
+        if (!u) throw new Error('Unexpected response shape');
+        document.getElementById('dmoj-solved-count').textContent = u.problem_count ?? '--';
+        document.getElementById('dmoj-rank').textContent = u.rank ?? '--';
+        document.getElementById('dmoj-points').textContent = (u.points != null) ? Number(u.points).toFixed(1) : '--';
+        document.getElementById('dmoj-rating').textContent = u.rating ?? '--';
+        console.log('DMOJ data loaded (direct)');
+        })
+        .catch(err => {
+        console.error('DMOJ direct fetch failed:', err);
+        // Optional: show a brief fallback indicator on the page
+        ['dmoj-solved-count','dmoj-rank','dmoj-points','dmoj-rating'].forEach(id=>{
+            const el = document.getElementById(id);
+            if (el && el.textContent === '--') el.textContent = 'N/A';
+        });
+        });
+    })();
 
     /* DMOJ Dashboard Stats */
     const dmojEndpoint = '/api/dmoj';
