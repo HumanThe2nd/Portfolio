@@ -2,7 +2,7 @@
 Javascript portfolio script
 Author: Dan Shan
 Created: 2025-02-23
-Updated: 2025-04-21
+Updated: 2026-06-07
 */
 
 function toggleDarkMode() {
@@ -42,28 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const dmojRank = document.getElementById('dmoj-rank');
     const dmojPoints = document.getElementById('dmoj-points');
     const dmojRating = document.getElementById('dmoj-rating');
+    const dmojEndpoint = '/api/dmoj';
 
     async function loadDmojStats() {
-        const url = 'https://dmoj.ca/api/v2/user/HumanThe2nd';
-        console.log('DMOJ fetch starting:', url);
+        console.log('DMOJ fetch starting:', dmojEndpoint);
 
         try {
-            const res = await fetch(url);
-            console.log('DMOJ fetch status:', res.status, res.statusText, res.headers.get('content-type'));
-            const text = await res.text();
-            console.log('DMOJ raw response text:', text);
+            const res = await fetch(dmojEndpoint);
+            console.log('DMOJ proxy status:', res.status, res.statusText);
+            const json = await res.json();
+            console.log('DMOJ proxy JSON:', json);
 
-            let data;
-            try {
-                data = JSON.parse(text);
-            } catch (parseErr) {
-                throw new Error('Failed to parse JSON: ' + parseErr.message);
-            }
-
-            console.log('DMOJ parsed JSON:', data);
-            const user = data?.data?.object;
+            const user = json?.data?.object;
             if (!user) {
-                throw new Error('Missing data.data.object in DMOJ response');
+                throw new Error('Missing data.data.object in DMOJ proxy response');
             }
 
             dmojSolved.textContent = user.problem_count ?? '--';
@@ -72,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             dmojRating.textContent = user.rating ?? '--';
             console.log('DMOJ stats populated successfully');
         } catch (err) {
-            console.error('DMOJ fetch failed:', err);
+            console.error('DMOJ proxy fetch failed:', err);
             ['dmoj-solved-count', 'dmoj-rank', 'dmoj-points', 'dmoj-rating'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = 'N/A';
