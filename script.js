@@ -37,6 +37,38 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(err => {
             console.error("Error fetching view count:", err);
         });
+
+    /* DMOJ Dashboard Stats */
+    const dmojUrl = 'https://dmoj.ca/api/v2/user/HumanThe2nd';
+    const dmojSolved = document.getElementById('dmoj-solved-count');
+    const dmojRank = document.getElementById('dmoj-rank');
+    const dmojPoints = document.getElementById('dmoj-points');
+    const dmojRating = document.getElementById('dmoj-rating');
+
+    fetch(dmojUrl)
+        .then(res => res.json())
+        .then(data => {
+            const user = data?.data?.object;
+            if (!user) {
+                throw new Error('Invalid DMOJ response');
+            }
+
+            if (dmojSolved) {
+                dmojSolved.textContent = user.problem_count != null ? user.problem_count : '--';
+            }
+            if (dmojRank) {
+                dmojRank.textContent = user.rank != null ? user.rank : '--';
+            }
+            if (dmojPoints) {
+                dmojPoints.textContent = user.points != null ? user.points.toFixed(1) : '--';
+            }
+            if (dmojRating) {
+                dmojRating.textContent = user.rating != null ? user.rating : '--';
+            }
+        })
+        .catch(err => {
+            console.error('Error fetching DMOJ stats:', err);
+        });
     
     /* Snow Effect */
     const canvas = document.getElementById("snowCanvas");
@@ -63,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             snowflakes.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                radius: Math.random() * 4 + 1,
+                radius: Math.random() * 5 + 1,
                 speed: Math.random() * 3 + 1
             });
         }
@@ -75,8 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
         snowflakes.forEach((flake) => {
             // Create a radial gradient for each snowflake
             let gradient = ctx.createRadialGradient(flake.x, flake.y, 0, flake.x, flake.y, flake.radius);
-            gradient.addColorStop(0, "rgba(0 ,80 ,255, 1)");  // Blue center
-            gradient.addColorStop(1, "rgba(255 ,255 ,255, 1)");  // White edges
+            gradient.addColorStop(0, "rgb(99, 205, 250)");  // Blue center
+            gradient.addColorStop(1, "rgb(255, 255, 255)");  // White edges
             ctx.fillStyle = gradient;
             ctx.beginPath();
             ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);

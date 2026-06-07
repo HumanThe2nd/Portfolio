@@ -3,7 +3,7 @@ Portfolio HTML code
 Author: Dan Shan
 Created: 2025-02-23
 Updated: 2025-06-04
-!-->
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,16 +29,80 @@ Updated: 2025-06-04
     </div>
     <img src="images/pfp.jpg" alt="Profile Picture" class="profile-pic">
     <h2> Welcome to my portfolio!</h2>
-    <p> I'm a software developer studying engineering at the University of Ottawa. <br>
-        This portfolio consists of some of my projects, academic works, and contact information.<br>
-        As hobbies: I enjoy competitive programming, various projects, reading articles, working out, and playing sports. <br>
-        Feel free to reach out to me :)</p>
-    <p><a href="contact.html" target="_blank">Contacts</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/danshan1st/" target="_blank">danshan1st</a> </p>
-    <p>Github: <a href="https://github.com/HumanThe2nd" target="_blank">HumanThe2nd</a> </p>
-    <p>Clist: <a href="https://clist.by/coder/1s/" target="_blank">1s</a> </p>
-    <div id="view-count"></div>
+    <section id="dashboard" class="dashboard-panel">
+        <div class="dashboard-header">
+            <h2 class="eyebrow">Code Dashboard</h2>
+            <p class="dashboard-copy">Some real-time stats</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <article class="dash-card">
+                <div class="card-label">DMOJ solved</div>
+                <p class="metric-value" id="dmoj-solved-count">--</p>
+                <p class="metric-meta">Problems solved on DMOJ</p>
+            </article>
+
+            <article class="dash-card image-card">
+                <div class="card-label">Leetcode stats</div>
+                <a href="https://leetcard.jacoblin.cool/HumanThe1st?theme=dark" target="_blank" rel="noopener" aria-label="LeetCode stats">
+                    <img src="https://leetcard.jacoblin.cool/HumanThe1st?theme=dark" alt="LeetCode stats" />
+                </a>
+                <p class="metric-meta">Live LeetCode Stats</p>
+            </article>
+
+            <article class="dash-card image-card">
+                <div class="card-label">GitHub streaks</div>
+                <a href="https://github-readme-streak-stats-plum-nine.vercel.app/?user=HumanThe2nd&theme=gotham" target="_blank" rel="noopener" aria-label="GitHub streaks">
+                    <img src="https://github-readme-streak-stats-plum-nine.vercel.app/?user=HumanThe2nd&theme=gotham" alt="GitHub streaks" />
+                </a>
+                <p class="metric-meta">Current commit streak</p>
+            </article>
+
+            <article class="dash-card image-card">
+                <div class="card-label">GitHub stats</div>
+                <a href="https://github-readme-stats-plum-nine.vercel.app/api?username=HumanThe2nd&show_icons=true&theme=gotham" target="_blank" rel="noopener" aria-label="GitHub stats">
+                    <img src="https://github-readme-stats-plum-nine.vercel.app/api?username=HumanThe2nd&show_icons=true&theme=gotham" alt="GitHub stats" />
+                </a>
+                <p class="metric-meta">Contribution overview</p>
+            </article>
+        </div>
+
+        <div class="dashboard-wide-card">
+            <div class="wide-card-heading">Telemetry Feed</div>
+            <div class="telemetry-grid">
+                <div class="telemetry-item">
+                    <span>Views</span>
+                    <strong id="view-count">--</strong>
+                </div>
+                <div class="telemetry-item">
+                    <span>DMOJ rank</span>
+                    <strong id="dmoj-rank">--</strong>
+                </div>
+                <div class="telemetry-item">
+                    <span>Points</span>
+                    <strong id="dmoj-points">--</strong>
+                </div>
+                <div class="telemetry-item">
+                    <span>Rating</span>
+                    <strong id="dmoj-rating">--</strong>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="script.js"></script>
+    <p><a href="contact.html" target="_blank">Contact Me</a></p>
+    <p class="social-links"> <!-- Contact links -->
+        <a class="social-link" href="https://www.linkedin.com/in/danshan1st/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <img class="social-icon" src="images/LinkedIn.png" alt="LinkedIn">
+        </a>
+        <a class="social-link" href="https://github.com/HumanThe2nd" target="_blank" rel="noopener" aria-label="Github" title="Github">
+            <img class="social-icon" src="images/Git.png" alt="Github">
+        </a>
+        <a class="social-link" href="https://clist.by/coder/1s/" target="_blank" rel="noopener" aria-label="Clist" title="Clist">
+            <img class="social-icon" src="images/Clist.png" alt="Clist">
+        </a>
+    </p>
+    <p> Feel free to reach out :)</p>
 </body>
 </html>
 
