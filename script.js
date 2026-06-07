@@ -46,7 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const dmojRating = document.getElementById('dmoj-rating');
 
     async function loadDmojStats() {
-        const candidates = [dmojEndpoint, 'https://dmoj.ca/api/v2/user/HumanThe2nd'];
+        // Prefer the cached file updated by GitHub Actions (no CORS issues),
+        // then try server proxy, then direct DMOJ as last resort.
+        const candidates = ['/dmoj.json', dmojEndpoint, 'https://dmoj.ca/api/v2/user/HumanThe2nd'];
         let payload = null;
 
         for (const url of candidates) {
