@@ -39,13 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     /* DMOJ Dashboard Stats */
-    const dmojUrl = 'https://dmoj.ca/api/v2/user/HumanThe2nd';
+    const dmojEndpoint = '/api/dmoj';
     const dmojSolved = document.getElementById('dmoj-solved-count');
     const dmojRank = document.getElementById('dmoj-rank');
     const dmojPoints = document.getElementById('dmoj-points');
     const dmojRating = document.getElementById('dmoj-rating');
 
-    fetch(dmojUrl)
+    fetch(dmojEndpoint)
         .then(res => res.json())
         .then(data => {
             const user = data?.data?.object;
@@ -68,6 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => {
             console.error('Error fetching DMOJ stats:', err);
+            if (dmojSolved) dmojSolved.textContent = 'N/A';
+            if (dmojRank) dmojRank.textContent = 'N/A';
+            if (dmojPoints) dmojPoints.textContent = 'N/A';
+            if (dmojRating) dmojRating.textContent = 'N/A';
         });
     
     /* Snow Effect */
