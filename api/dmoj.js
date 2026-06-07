@@ -10,7 +10,8 @@ const USER_AGENTS = [
 
 async function readCache() {
     try {
-        const raw = await fs.promises.readFile(CACHE_FILE, 'utf8');
+        let raw = await fs.promises.readFile(CACHE_FILE, 'utf8');
+        raw = raw.replace(/^\uFEFF/, '');
         return JSON.parse(raw);
     } catch (err) {
         console.error('Unable to read DMOJ cache file:', err.message);
