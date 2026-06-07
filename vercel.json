@@ -4,10 +4,6 @@
     {
       "src": "/api/view",
       "dest": "api/view.js"
-    },
-    {
-      "src": "/api/dmoj",
-      "dest": "api/dmoj.js"
     }
   ]
 }
