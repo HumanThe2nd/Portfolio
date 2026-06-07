@@ -45,35 +45,44 @@ document.addEventListener("DOMContentLoaded", () => {
     const dmojPoints = document.getElementById('dmoj-points');
     const dmojRating = document.getElementById('dmoj-rating');
 
-    fetch(dmojEndpoint)
-        .then(res => res.json())
-        .then(data => {
-            const user = data?.data?.object;
-            if (!user) {
-                throw new Error('Invalid DMOJ response');
-            }
+    async function loadDmojStats() {
+        const candidates = [dmojEndpoint, 'https://dmoj.ca/api/v2/user/HumanThe2nd'];
+        let payload = null;
 
-            if (dmojSolved) {
-                dmojSolved.textContent = user.problem_count != null ? user.problem_count : '--';
+        for (const url of candidates) {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const json = await res.json();
+                // Normalize payload: DMOJ returns { data: { object: { ... } } }
+                const user = json?.data?.object ?? json?.object ?? json;
+                if (user && (user.problem_count !== undefined || user.points !== undefined)) {
+                    payload = user;
+                    console.log('Loaded DMOJ data from', url);
+                    break;
+                }
+                console.warn('DMOJ response did not contain expected fields from', url, json);
+            } catch (err) {
+                console.warn('DMOJ fetch failed for', url, err);
             }
-            if (dmojRank) {
-                dmojRank.textContent = user.rank != null ? user.rank : '--';
-            }
-            if (dmojPoints) {
-                dmojPoints.textContent = user.points != null ? user.points.toFixed(1) : '--';
-            }
-            if (dmojRating) {
-                dmojRating.textContent = user.rating != null ? user.rating : '--';
-            }
-        })
-        .catch(err => {
-            console.error('Error fetching DMOJ stats:', err);
+        }
+
+        if (!payload) {
             if (dmojSolved) dmojSolved.textContent = 'N/A';
             if (dmojRank) dmojRank.textContent = 'N/A';
             if (dmojPoints) dmojPoints.textContent = 'N/A';
             if (dmojRating) dmojRating.textContent = 'N/A';
-        });
-    
+            return;
+        }
+
+        if (dmojSolved) dmojSolved.textContent = payload.problem_count ?? '--';
+        if (dmojRank) dmojRank.textContent = payload.rank ?? '--';
+        if (dmojPoints) dmojPoints.textContent = payload.points != null ? Number(payload.points).toFixed(1) : '--';
+        if (dmojRating) dmojRating.textContent = payload.rating ?? '--';
+    }
+
+    loadDmojStats();
+
     /* Snow Effect */
     const canvas = document.getElementById("snowCanvas");
     if (!canvas) {
