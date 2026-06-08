@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log('DMOJ proxy status:', res.status, res.statusText);
             const json = await res.json();
             console.log('DMOJ proxy JSON:', json);
+            console.log('DMOJ data source:', json._source, json._error ? `(Error: ${json._error})` : '');
 
             const user = json?.data?.object ?? json?.object;
             if (!user) {
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             dmojRank.textContent = user.rank ?? '--';
             dmojPoints.textContent = user.points != null ? Number(user.points).toFixed(1) : '--';
             dmojRating.textContent = user.rating ?? '--';
-            console.log('DMOJ stats populated successfully');
+            console.log('DMOJ stats populated successfully', json._source === 'live' ? '(LIVE)' : '(CACHED)');
         } catch (err) {
             console.error('DMOJ proxy fetch failed:', err);
             ['dmoj-solved-count', 'dmoj-rank', 'dmoj-points', 'dmoj-rating'].forEach(id => {
